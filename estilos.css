@@ -1,0 +1,42 @@
+.chave li {
+    display:inline-block;
+    border-style: solid;
+    border-width: 2px;
+    padding: auto;
+    margin: 5px;
+    border-color: navy;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    vertical-align: middle;
+    border-radius: 20%;
+}
+
+.numeros li {
+    background-color: aqua;
+}
+
+.estrelas li {
+    background-color: gold;
+}
+
+div.numeros,div.estrelas {
+    display: inline-block;
+}
+
+
+footer,header {
+    font-family: monospace;
+}
+
+header {
+    background-color: blue;
+    color : yellow;
+}
+
+footer {
+    background-color: black;
+    color: aliceblue;
+}
+
