@@ -3,8 +3,33 @@ botao.addEventListener("click", novachave);
 
 
 function novachave() {
+
+    let chavediv = document.createElement("div");
+    chavediv.classList.add("chave");
+
+    let numerosdiv = document.createElement("div");
+    numerosdiv.classList.add("numeros");
+
+    let numerosul = document.createElement("ul");
+
+    let estrelasdiv = document.createElement("div");
+    estrelasdiv.classList.add("estrelas");
+
+    let estrelasul = document.createElement("ul");
+
+    numerosdiv.appendChild(numerosul);
+    estrelasdiv.appendChild(estrelasul);
+    chavediv.appendChild(numerosdiv);
+    chavediv.appendChild(estrelasdiv);
+
+    // console.log(chavediv);
+
     let chave = fazchave();
-    afixaChave(chave);
+    afixaChave(chave, numerosul, estrelasul);
+
+    let divchaves = document.querySelector("div.chaves");
+    divchaves.appendChild(chavediv);
+
 }
 
 function fazchave() {
@@ -29,9 +54,10 @@ function gerachave(k,max) {
 }
 
 
-function afixaChave(chave) {
+function afixaChave(chave, nul, eul) {
     
-    const listaamodificarnum = document.querySelector(".numeros ul");
+    //const listaamodificarnum = document.querySelector(".numeros ul");
+    const listaamodificarnum = nul;
     listaamodificarnum.innerHTML = "";
 
     for (let i = 0; i < chave.numeros.length; i++) {
@@ -40,7 +66,8 @@ function afixaChave(chave) {
         listaamodificarnum.appendChild(li);
     }   
     
-    const listaamodificarestrelas = document.querySelector(".estrelas ul");
+    //const listaamodificarestrelas = document.querySelector(".estrelas ul");
+    const listaamodificarestrelas = eul;
     listaamodificarestrelas.innerHTML = "";
 
     for (let i = 0; i < chave.estrelas.length; i++) {
