@@ -1,22 +1,26 @@
-//conteudoHTML = document.querySelector(".numeros ul").innerHTML;
-//window.alert(conteudoHTML);
-
-
-//novoli = document.createElement("li");
-//novoli.innerHTML = "88";
-
-
-//listaamodificar.appendChild(novoli);
-
 botao = document.getElementById("bgera");
-botao.addEventListener("click", afixaChave);
+botao.addEventListener("click", novachave);
 
-afixaChave();
 
-function gerachave() {
+function novachave() {
+    let chave = fazchave();
+    afixaChave(chave);
+}
+
+function fazchave() {
+    osnumeros = gerachave(5, 50);
+    asestrelas = gerachave(2, 12)
+    novachave = {
+        numeros: osnumeros,
+        estrelas : asestrelas
+    }
+    return novachave;
+}
+
+function gerachave(k,max) {
     let novachave = [];
-    while (novachave.length < 5) {
-        let novonumero = Math.floor(Math.random() * 50) + 1;
+    while (novachave.length < k) {
+        let novonumero = Math.floor(Math.random() * max) + 1;
         if (!novachave.includes(novonumero)) {
             novachave.push(novonumero);
         }
@@ -24,19 +28,27 @@ function gerachave() {
     return novachave;
 }
 
-function afixaChave() {
+
+function afixaChave(chave) {
     
-    const listaamodificar = document.querySelector(".numeros ul");
-    listaamodificar.innerHTML = "";
+    const listaamodificarnum = document.querySelector(".numeros ul");
+    listaamodificarnum.innerHTML = "";
 
-    chave = gerachave();
-    console.log(chave);
-
-    for (let i = 0; i < chave.length; i++) {
+    for (let i = 0; i < chave.numeros.length; i++) {
         let li = document.createElement("li");
-        li.innerHTML = chave[i];
-        listaamodificar.appendChild(li);
+        li.innerHTML = chave.numeros[i];
+        listaamodificarnum.appendChild(li);
     }   
+    
+    const listaamodificarestrelas = document.querySelector(".estrelas ul");
+    listaamodificarestrelas.innerHTML = "";
+
+    for (let i = 0; i < chave.estrelas.length; i++) {
+        let li = document.createElement("li");
+        li.innerHTML = chave.estrelas[i];
+        listaamodificarestrelas.appendChild(li);
+    }  
+
 }
 
 
